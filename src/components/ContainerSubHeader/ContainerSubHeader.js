@@ -4,8 +4,10 @@ const ContainerSubHeader = (props) => {
 	return (
 		<div className='container-subheader'>
 			<div className='spacer'></div>
-			{props.stats.map((stat) => (
-				<div className='stats'>{stat}</div>
+			{props.stats.map((stat, index) => (
+				<div key={index * 13} className='stats'>
+					{stat}
+				</div>
 			))}
 		</div>
 	);

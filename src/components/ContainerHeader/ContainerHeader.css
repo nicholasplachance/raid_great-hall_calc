@@ -1,4 +1,7 @@
 .container-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 5px 0;
     height: 45px;
     width: 80vw;
