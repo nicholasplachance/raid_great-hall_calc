@@ -47,9 +47,10 @@
 
 
 .main-container {
+  height: 70vh;
   display: grid;
   grid-template-columns: 10vw 10vw 10vw 10vw 10vw 10vw;
-  grid-template-rows: 20vh 20vh 20vh 20vh;
+  grid-template-rows: auto;
   grid-gap: 16px;
   justify-content: center;
   align-items: center;
@@ -68,7 +69,7 @@
   flex-direction: column;
   justify-content: center;
   width: 90px;
-  height: 85vh;
+  height: 70vh;
   border: 2px solid #111;
 }
 
@@ -77,4 +78,11 @@
   height: 20vh;
   flex-direction: column;
   justify-content: center;
+}
+
+.controls-container {
+  height: 12vh;
+  width: 90vw;
+  border: 2px solid #111;
+  margin-top: 15px;
 }

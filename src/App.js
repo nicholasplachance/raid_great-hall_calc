@@ -30,6 +30,15 @@ function App() {
 		})
 	);
 
+	const reset = () => {
+		greatHallBonuses.forEach((bonus) => {
+			bonus.level = 0;
+			bonus.bonus = 0;
+		});
+
+		setGreatHallCurrentLevel(0);
+	};
+
 	return (
 		<div className='App'>
 			<ContainerHeader currentLevel={greatHallCurrentLevel} />
@@ -61,18 +70,11 @@ function App() {
 						: []}
 				</div>
 			</div>
+			<div className='controls-container'>
+				<button onClick={() => reset()}>Reset</button>
+			</div>
 		</div>
 	);
 }
 
 export default App;
-
-{
-	/* <ContainerItem
-					id={affinity + stat}
-					affinity={affinity}
-					stat={stat}
-					setGreatHallCurrentLevel={setGreatHallCurrentLevel}
-					greatHallCurrentLevel={greatHallCurrentLevel}
-				/> */
-}
