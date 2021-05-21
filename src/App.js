@@ -11,6 +11,26 @@ function App() {
 	const stats = ['HP', 'ATK', 'DEF', 'C. DMG', 'Resist', 'ACC'];
 	const [greatHallBonuses, setGreatHallBonuses] = useState([]);
 
+	const bonusLevelsGainsPercent = [
+		{
+			0: 0,
+			1: 2,
+			2: 3,
+			3: 4,
+			4: 6,
+			5: 8,
+			6: 10,
+			7: 12,
+			8: 14,
+			9: 17,
+			10: 20
+		}
+	];
+
+	const bonusLevelsGainsCDMG = [{ 0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 15, 8: 18, 9: 21, 10: 25 }];
+
+	const bonusLevelsGainsFlatStat = [{ 0: 0, 1: 5, 2: 10, 3: 15, 4: 20, 5: 30, 6: 40, 7: 50, 8: 60, 9: 70, 10: 80 }];
+
 	const createGreatHallBonus = (stat, affinity) => {
 		const greatHallBonus = {
 			stat: stat,
@@ -65,6 +85,9 @@ function App() {
 									setGreatHallBonuses={setGreatHallBonuses}
 									setGreatHallCurrentLevel={setGreatHallCurrentLevel}
 									greatHallCurrentLevel={greatHallCurrentLevel}
+									bonusLevelsGainsPercent={bonusLevelsGainsPercent}
+									bonusLevelsGainsFlatStat={bonusLevelsGainsFlatStat}
+									bonusLevelsGainsCDMG={bonusLevelsGainsCDMG}
 								/>
 						  ))
 						: []}
