@@ -2,28 +2,30 @@ import { useState } from 'react';
 
 const ContainerItem = (props) => {
 	const itemMaxLevel = 10;
-	const [itemLevel, setItemLevel] = useState(0);
-	const [itemLevelGain, setItemLevelGain] = useState(0);
+
+	console.log(props.greatHallBonuses[props.index].level);
 
 	const subtract = (e) => {
-		if (itemLevel > 0) {
-			setItemLevel(itemLevel - 1);
+		if (props.level > 0) {
+			props.greatHallBonuses[props.index].level = props.greatHallBonuses[props.index].level - 1;
+			props.setGreatHallCurrentLevel(props.greatHallCurrentLevel - 1);
 		}
 	};
 
 	const add = (e) => {
-		if (itemLevel < 10) {
-			setItemLevel(itemLevel + 1);
+		if (props.level < 10) {
+			props.greatHallBonuses[props.index].level = props.greatHallBonuses[props.index].level + 1;
+			props.setGreatHallCurrentLevel(props.greatHallCurrentLevel + 1);
 		}
 	};
 
 	return (
 		<div key={props.id} className='container-item'>
 			<p>
-				{itemLevel}/{itemMaxLevel}
+				{props.level}/{itemMaxLevel}
 			</p>
 			<span>{props.stat}</span>
-			<p>{itemLevelGain}%</p>
+			<p>{props.bonus}%</p>
 			<div>
 				<button className='subtract' onClick={() => subtract()}>
 					-
