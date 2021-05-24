@@ -3,14 +3,13 @@
     justify-content: center;
     margin: 15px 0;
     height: 30px;
-    width: 85vw;
+    width: 75vw;
     border: 3px solid #111;
   }
 
   .spacer {
       flex-grow: 1;
       width: 20vw;
-      margin-right: 25px;
   }
 
   .stats {

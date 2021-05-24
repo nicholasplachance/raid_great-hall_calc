@@ -57,11 +57,6 @@
   margin-left: 35px;
 }
 
-.container-item {
-  height: 100%;
-  width: 100%;
-  border: 2px solid #111;
-}
 
 
 .affinities-container {
@@ -80,9 +75,21 @@
   justify-content: center;
 }
 
-.controls-container {
-  height: 12vh;
-  width: 90vw;
-  border: 2px solid #111;
-  margin-top: 15px;
+.control-button {
+  width: 60px;
+  height: 60%;
 }
+
+.control-button:hover {
+  cursor: pointer;
+}
+
+.control-panel-sub {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-panel-sub p {
+  margin: 0;
+}
+

@@ -1,0 +1,10 @@
+.control-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    height: 12vh;
+    width: 90vw;
+    border: 2px solid #111;
+    margin-top: 15px;
+  }

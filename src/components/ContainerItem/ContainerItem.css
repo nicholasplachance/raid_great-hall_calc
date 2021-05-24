@@ -1,6 +1,12 @@
 .container-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 100%;
     width: 100%;
     border: 2px solid #111;
   }
-  
+
+  .container-item p {
+  margin: 0;
+}

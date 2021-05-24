@@ -1,3 +1,5 @@
+import './ContainerItem.css';
+
 import { useState } from 'react';
 
 const ContainerItem = (props) => {
@@ -32,6 +34,19 @@ const ContainerItem = (props) => {
 		}
 	};
 
+	const setCurrentCost = () => {
+		props.greatHallBonuses[props.index].cost =
+			props.greatHallBonuses[props.index].cost +
+			props.bonusLevelsCost[0][`${props.greatHallBonuses[props.index].level}`];
+	};
+
+	const checkNextCost = () => {
+		let nextCost;
+
+		nextCost = props.bonusLevelsCost[0][`${props.greatHallBonuses[props.index].level + 1}`];
+		return nextCost;
+	};
+
 	const subtract = (e) => {
 		if (props.level > 0) {
 			props.greatHallBonuses[props.index].level = props.greatHallBonuses[props.index].level - 1;
@@ -39,6 +54,7 @@ const ContainerItem = (props) => {
 		}
 		if (props.greatHallBonuses[props.index].level < 10) {
 			setBonusLevel();
+			setCurrentCost();
 		}
 	};
 
@@ -49,6 +65,7 @@ const ContainerItem = (props) => {
 		}
 		if (props.greatHallBonuses[props.index].level > 0) {
 			setBonusLevel();
+			setCurrentCost();
 		}
 	};
 
@@ -67,6 +84,7 @@ const ContainerItem = (props) => {
 					+
 				</button>
 			</div>
+			<p>Next cost: {checkNextCost()}</p>
 		</div>
 	);
 };

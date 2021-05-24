@@ -3,6 +3,7 @@ import './App.css';
 import ContainerHeader from './components/ContainerHeader/ContainerHeader';
 import ContainerItem from './components/ContainerItem/ContainerItem';
 import ContainerSubHeader from './components/ContainerSubHeader/ContainerSubHeader';
+import ControlPanel from './components/ControlPanel/ControlPanel';
 import { useState } from 'react';
 
 function App() {
@@ -10,6 +11,22 @@ function App() {
 	const affinities = ['Magic', 'Spirit', 'Force', 'Void'];
 	const stats = ['HP', 'ATK', 'DEF', 'C. DMG', 'Resist', 'ACC'];
 	const [greatHallBonuses, setGreatHallBonuses] = useState([]);
+
+	const bonusLevelsCost = [
+		{
+			0: 0,
+			1: 50,
+			2: 100,
+			3: 150,
+			4: 300,
+			5: 400,
+			6: 500,
+			7: 800,
+			8: 1000,
+			9: 1200,
+			10: 1400
+		}
+	];
 
 	const bonusLevelsGainsPercent = [
 		{
@@ -36,7 +53,8 @@ function App() {
 			stat: stat,
 			affinity: affinity,
 			level: 0,
-			bonus: 0
+			bonus: 0,
+			cost: 0
 		};
 
 		if (greatHallBonuses.length < 24) {
@@ -54,9 +72,18 @@ function App() {
 		greatHallBonuses.forEach((bonus) => {
 			bonus.level = 0;
 			bonus.bonus = 0;
+			bonus.cost = 0;
 		});
 
 		setGreatHallCurrentLevel(0);
+	};
+
+	const checkCurrentCost = () => {
+		const totalCost = greatHallBonuses.reduce((accum, item) => accum + item.cost, 0);
+		const silverCost = totalCost / 2;
+		const goldCost = totalCost / 4;
+		const allMedalsCost = { bronze: totalCost, silver: silverCost, gold: goldCost };
+		return allMedalsCost;
 	};
 
 	return (
@@ -88,14 +115,24 @@ function App() {
 									bonusLevelsGainsPercent={bonusLevelsGainsPercent}
 									bonusLevelsGainsFlatStat={bonusLevelsGainsFlatStat}
 									bonusLevelsGainsCDMG={bonusLevelsGainsCDMG}
+									bonusLevelsCost={bonusLevelsCost}
 								/>
 						  ))
 						: []}
 				</div>
 			</div>
-			<div className='controls-container'>
-				<button onClick={() => reset()}>Reset</button>
-			</div>
+			<ControlPanel>
+				<div className='control-panel-sub buttons'>
+					<button className='reset control-button' onClick={() => reset()}>
+						Reset
+					</button>
+				</div>
+				<div className='control-panel-sub display'>
+					<p>Total Cost in Bronze Medals: {checkCurrentCost().bronze}</p>
+					<p>Total Cost in Silver Medals: {checkCurrentCost().silver}</p>
+					<p>Total Cost in Gold Medals: {checkCurrentCost().gold}</p>
+				</div>
+			</ControlPanel>
 		</div>
 	);
 }
