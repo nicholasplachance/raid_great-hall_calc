@@ -3,23 +3,32 @@ import { useState } from 'react';
 const ContainerItem = (props) => {
 	const itemMaxLevel = 10;
 
-	console.log(props.greatHallBonuses[props.index].level);
-	console.log(props.bonusLevelsGainsPercent[0][1]);
+	const setBonusLevelPercent = () => {
+		props.greatHallBonuses[props.index].bonus =
+			props.bonusLevelsGainsPercent[0][`${props.greatHallBonuses[props.index].level}`];
+	};
+
+	const setBonusLevelCDMG = () => {
+		props.greatHallBonuses[props.index].bonus =
+			props.bonusLevelsGainsCDMG[0][`${props.greatHallBonuses[props.index].level}`];
+	};
+
+	const setBonusLevelFlat = () => {
+		props.greatHallBonuses[props.index].bonus =
+			props.bonusLevelsGainsFlatStat[0][`${props.greatHallBonuses[props.index].level}`];
+	};
 
 	const setBonusLevel = () => {
 		if (['ATK', 'HP', 'DEF'].includes(props.stat)) {
-			props.greatHallBonuses[props.index].bonus =
-				props.bonusLevelsGainsPercent[0][`${props.greatHallBonuses[props.index].level}`];
+			setBonusLevelPercent();
 		}
 
 		if (['C. DMG'].includes(props.stat)) {
-			props.greatHallBonuses[props.index].bonus =
-				props.bonusLevelsGainsCDMG[0][`${props.greatHallBonuses[props.index].level}`];
+			setBonusLevelCDMG();
 		}
 
 		if (['ACC', 'Resist'].includes(props.stat)) {
-			props.greatHallBonuses[props.index].bonus =
-				props.bonusLevelsGainsFlatStat[0][`${props.greatHallBonuses[props.index].level}`];
+			setBonusLevelFlat();
 		}
 	};
 
