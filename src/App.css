@@ -65,12 +65,12 @@
   justify-content: center;
   width: 90px;
   height: 70vh;
-  border: 2px solid #fff;
 }
 
 .affinity {
   display: flex;
   height: 20vh;
+  font-size: 32px;
   flex-direction: column;
   justify-content: center;
   text-shadow: 1px 2px #111;
@@ -107,6 +107,7 @@
 }
 
 .control-panel-sub p {
+  font-size: 24px;
   margin: 0;
 }
 
