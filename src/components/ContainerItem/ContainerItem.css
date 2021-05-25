@@ -1,10 +1,11 @@
 .container-item {
+    background-color: #1d303c;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
     width: 100%;
-    border: 2px solid #111;
+    border: 2px solid #fff;
   }
 
   .container-item p {

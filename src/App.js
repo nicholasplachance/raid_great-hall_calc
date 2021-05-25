@@ -11,6 +11,7 @@ function App() {
 	const affinities = ['Magic', 'Spirit', 'Force', 'Void'];
 	const stats = ['HP', 'ATK', 'DEF', 'C. DMG', 'Resist', 'ACC'];
 	const [greatHallBonuses, setGreatHallBonuses] = useState([]);
+	const [totalMedalsCost, setTotalMedalsCost] = useState(0);
 
 	const bonusLevelsCost = [
 		{
@@ -68,6 +69,14 @@ function App() {
 		})
 	);
 
+	const checkCurrentCost = () => {
+		const totalCost = greatHallBonuses.reduce((accum, item) => accum + item.cost, 0);
+		const silverCost = totalCost / 2;
+		const goldCost = totalCost / 4;
+		const allMedalsCost = { bronze: totalCost, silver: silverCost, gold: goldCost };
+		return allMedalsCost;
+	};
+
 	const reset = () => {
 		greatHallBonuses.forEach((bonus) => {
 			bonus.level = 0;
@@ -75,15 +84,9 @@ function App() {
 			bonus.cost = 0;
 		});
 
-		setGreatHallCurrentLevel(0);
-	};
+		checkCurrentCost();
 
-	const checkCurrentCost = () => {
-		const totalCost = greatHallBonuses.reduce((accum, item) => accum + item.cost, 0);
-		const silverCost = totalCost / 2;
-		const goldCost = totalCost / 4;
-		const allMedalsCost = { bronze: totalCost, silver: silverCost, gold: goldCost };
-		return allMedalsCost;
+		setGreatHallCurrentLevel(0);
 	};
 
 	return (

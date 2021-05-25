@@ -65,7 +65,7 @@
   justify-content: center;
   width: 90px;
   height: 70vh;
-  border: 2px solid #111;
+  border: 2px solid #fff;
 }
 
 .affinity {
@@ -73,6 +73,23 @@
   height: 20vh;
   flex-direction: column;
   justify-content: center;
+  text-shadow: 1px 2px #111;
+}
+
+.affinity:nth-child(1) {
+  color: #48a0f0;
+}
+
+.affinity:nth-child(2) {
+  color: #26ca4b;
+}
+
+.affinity:nth-child(3) {
+  color: #da413c;
+}
+
+.affinity:nth-child(4) {
+  color: #c145c1;
 }
 
 .control-button {

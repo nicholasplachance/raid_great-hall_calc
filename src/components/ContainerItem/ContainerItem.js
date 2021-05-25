@@ -34,10 +34,20 @@ const ContainerItem = (props) => {
 		}
 	};
 
-	const setCurrentCost = () => {
-		props.greatHallBonuses[props.index].cost =
-			props.greatHallBonuses[props.index].cost +
-			props.bonusLevelsCost[0][`${props.greatHallBonuses[props.index].level}`];
+	const addCurrentCost = () => {
+		if (props.level < 10) {
+			props.greatHallBonuses[props.index].cost =
+				props.greatHallBonuses[props.index].cost +
+				props.bonusLevelsCost[0][`${props.greatHallBonuses[props.index].level}`];
+		}
+	};
+
+	const subtractCurrentCost = () => {
+		if (props.level > 0) {
+			props.greatHallBonuses[props.index].cost =
+				props.greatHallBonuses[props.index].cost -
+				props.bonusLevelsCost[0][`${props.greatHallBonuses[props.index].level + 1}`];
+		}
 	};
 
 	const checkNextCost = () => {
@@ -54,7 +64,7 @@ const ContainerItem = (props) => {
 		}
 		if (props.greatHallBonuses[props.index].level < 10) {
 			setBonusLevel();
-			setCurrentCost();
+			subtractCurrentCost();
 		}
 	};
 
@@ -65,7 +75,7 @@ const ContainerItem = (props) => {
 		}
 		if (props.greatHallBonuses[props.index].level > 0) {
 			setBonusLevel();
-			setCurrentCost();
+			addCurrentCost();
 		}
 	};
 
