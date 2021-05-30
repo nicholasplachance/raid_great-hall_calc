@@ -6,8 +6,21 @@
     height: 100%;
     width: 100%;
     border: 2px solid #fff;
+    text-shadow: 1px 1px #111;
   }
 
   .container-item p {
   margin: 0;
+}
+
+.bronze-item {
+  background-color: #916258;
+}
+
+.silver-item {
+  background-color: #17637a;
+}
+
+.gold-item {
+  background-color: #dfa01e;
 }

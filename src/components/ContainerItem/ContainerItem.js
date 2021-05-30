@@ -2,6 +2,8 @@ import './ContainerItem.css';
 
 import { useState } from 'react';
 
+var classNames = require('classnames');
+
 const ContainerItem = (props) => {
 	const itemMaxLevel = 10;
 
@@ -79,8 +81,15 @@ const ContainerItem = (props) => {
 		}
 	};
 
+	const containerItemClass = classNames({
+		'container-item': true,
+		'bronze-item': props.level > 0 && props.level < 4,
+		'silver-item': props.level >= 4 && props.level < 7,
+		'gold-item': props.level >= 7
+	});
+
 	return (
-		<div key={props.id} className='container-item'>
+		<div key={props.id} className={containerItemClass}>
 			<p>
 				{props.level}/{itemMaxLevel}
 			</p>
